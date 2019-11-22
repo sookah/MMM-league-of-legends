@@ -10,5 +10,14 @@ Module.register("MMM-LOL", {
     var wrapper = document.createElement("div");
     wrapper.innerHTML = this.config.title;
     return wrapper;
-  }
+  },
+
+  getToken: function () {
+
+  },
+
+  // Define required scripts.
+  getStyles: function () {
+    return ["lol.css"];
+  },
 });
