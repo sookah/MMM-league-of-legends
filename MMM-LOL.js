@@ -3,7 +3,9 @@ Module.register("MMM-LOL", {
   defaults: {
     title: "LOL Client",
     username: "supertrampsookah",
-    apiKey: "",
+    APIKey: "YOUR RIOT GAMES API KEY HERE",
+    // Riot games api config
+    region: "YOUR REGION",
   },
 
   // Override dom generator.
@@ -11,7 +13,7 @@ Module.register("MMM-LOL", {
     var wrapper = document.createElement("div");
     wrapper.innerHTML = this.config.title;
 
-    if (this.config.apiKey === "") {
+    if (!this.checkIfAPIKeyValid()) {
       wrapper.innerHTML = "Please set the correct LOL api key for module: " + this.name + ".";
       wrapper.className = "dimmed light small";
       return wrapper;
@@ -32,7 +34,7 @@ Module.register("MMM-LOL", {
       'Doctor Player',
       'superbatman13'
     ]
-
+    this.getSummonerData(friends[1]);
     for (var f in friends) {
       // var forecast = this.forecast[f];
 
@@ -47,8 +49,8 @@ Module.register("MMM-LOL", {
       nameCell.innerHTML = friends[f];
       row.appendChild(nameCell);
     }
-
-    return table;
+    wrapper.append(table);
+    return wrapper;
   },
 
   getToken: function () {
@@ -62,5 +64,41 @@ Module.register("MMM-LOL", {
 
   start: function () {
 
+  },
+
+  getSummonerData: (summonerName) => {
+    if (!this.checkIfAPIKeyValid()) {
+      return;
+    }
+
+    URL = "https://" + this.config.region + ".api.riotgames.com/lol/v4/summoners/by-name/" + summonerName +
+      "?api_key=" + this.config.APIKey;
+
+    var summonerRequest = new XMLHttpRequest();
+    summonerRequest.open("GET", URL, true);
+    summonerRequest.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        if (this.status === 200) {
+          Log.debug(JSON.parse(this.response));
+        } else if (this.status === 401) {
+
+
+        } else {
+          Log.error(self.name + ": Could not load Summoner info for: " + summonerName);
+        }
+
+      }
+    };
+    summonerRequest.send();
+
+  },
+
+  checkIfAPIKeyValid: () => {
+    if (this.config.APIKey === "") {
+      Log.error(`{this.name} API key was not provided`);
+      return false;
+    }
+
+    return true;
   }
 });
