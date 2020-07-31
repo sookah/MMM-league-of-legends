@@ -32,7 +32,7 @@ Module.register("MMM-LOL", {
       'jrKarki',
       'Dank Knight 64',
       'Doctor Player',
-      'superbatman13'
+      'Dr Poudel'
     ]
     this.getSummonerData(friends[1]);
     for (var f in friends) {
