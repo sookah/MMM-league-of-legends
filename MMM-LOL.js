@@ -30,7 +30,7 @@ Module.register("MMM-LOL", {
 
     friends = ['Eternal Phase',
       'jrKarki',
-      'Dark Knight64',
+      'Dank Knight 64',
       'Doctor Player',
       'superbatman13'
     ]
