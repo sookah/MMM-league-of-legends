@@ -30,9 +30,9 @@ Module.register("MMM-LOL", {
 
     friends = ['Eternal Phase',
       'jrKarki',
-      'Dank Knight 64',
+      'Dark Knight64',
       'Doctor Player',
-      'Dr Poudel'
+      'superbatman13'
     ]
     this.getSummonerData(friends[1]);
     for (var f in friends) {
