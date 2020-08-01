@@ -1,21 +1,19 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-  <!-- Insert header here -->
+    <app-header></app-header>
   </nb-layout-header>
 
   <nb-layout-column>
+    Page Content <button nbButton>Hello World</button>
 
-    <app-header></app-header>
-    <div class="container">
-    
       <router-outlet></router-outlet>
-    </div>
-    <app-footer></app-footer>
-  </nb-layout-column>
+    </nb-layout-column>
+    
+    <nb-layout-footer fixed>
 
-  <nb-layout-footer fixed>
-  <!-- Insert footer here -->
+      <app-footer></app-footer>
+
   </nb-layout-footer>
 
 </nb-layout>
