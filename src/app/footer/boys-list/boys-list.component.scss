@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+}
+
+@import "../../../themes.scss";
+
+@include nb-install-component() {
+  nb-user {
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.2rem;
+    cursor: pointer;
+  }
+}
