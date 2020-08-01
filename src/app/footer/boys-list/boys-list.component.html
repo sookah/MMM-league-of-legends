@@ -1,5 +1,3 @@
-<li *ngFor="let summoner of summonersList">
-  <div class="d-inline p-2 bg-primary text-white">
-    {{summoner.name}}
-  </div>
-</li>
+<div *ngFor="let summoner of summonersList">
+  <nb-user shape="rectangle" [name]="summoner.name" title="Lane" [showTitle]="false" size="small"></nb-user>
+</div>

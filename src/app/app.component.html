@@ -5,14 +5,12 @@
   </nb-layout-header>
 
   <nb-layout-column>
-    Page Content <button nbButton>Hello World</button>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
 
-      <router-outlet></router-outlet>
-    </nb-layout-column>
-    
-    <nb-layout-footer fixed>
+  <nb-layout-footer fixed>
 
-      <app-footer></app-footer>
+    <app-footer></app-footer>
 
   </nb-layout-footer>
 
