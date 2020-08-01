@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nb-flip-card {
+    width: 300px;
+    padding: 10px;
+}
